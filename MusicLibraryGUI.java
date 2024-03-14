@@ -15,6 +15,10 @@ import javax.swing.Timer;
  */
 public class MusicLibraryGUI extends javax.swing.JFrame {
 
+    
+    LikedSongsInterface likedSongs = new LikedSongsImpl();
+    GenrePlaylistInterface genrePlaylist = new GenrePlaylistImpl();
+        
     /**
      * Creates new form MusicLibraryGUI
      */
@@ -65,6 +69,7 @@ public class MusicLibraryGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         print_hiphopBTN = new javax.swing.JButton();
         addBTN = new javax.swing.JButton();
@@ -73,7 +78,13 @@ public class MusicLibraryGUI extends javax.swing.JFrame {
         print_pianoBTN = new javax.swing.JButton();
         exitBTN = new javax.swing.JButton();
         moveBTN = new javax.swing.JButton();
-        repeatTOGGLE = new javax.swing.JToggleButton();
+        titleTF = new javax.swing.JTextField();
+        searchBTN = new javax.swing.JButton();
+        sizeBTN = new javax.swing.JButton();
+        artistLBL = new javax.swing.JLabel();
+        titleLBL = new javax.swing.JLabel();
+        repeatTOGGLE2 = new javax.swing.JToggleButton();
+        artistTF = new javax.swing.JTextField();
         backgroundLBL = new javax.swing.JLabel();
         colorblindLBL = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -98,6 +109,11 @@ public class MusicLibraryGUI extends javax.swing.JFrame {
         addBTN.setForeground(new java.awt.Color(51, 51, 51));
         addBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Allowance.png"))); // NOI18N
         addBTN.setText("Add");
+        addBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBTNActionPerformed(evt);
+            }
+        });
         jPanel1.add(addBTN);
         addBTN.setBounds(1030, 660, 120, 50);
 
@@ -106,6 +122,11 @@ public class MusicLibraryGUI extends javax.swing.JFrame {
         print_likedBTN.setForeground(new java.awt.Color(51, 51, 51));
         print_likedBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/folder.png"))); // NOI18N
         print_likedBTN.setText("Print Liked");
+        print_likedBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                print_likedBTNActionPerformed(evt);
+            }
+        });
         jPanel1.add(print_likedBTN);
         print_likedBTN.setBounds(750, 660, 150, 50);
 
@@ -114,6 +135,11 @@ public class MusicLibraryGUI extends javax.swing.JFrame {
         deleteBTN.setForeground(new java.awt.Color(51, 51, 51));
         deleteBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete_16x16.gif"))); // NOI18N
         deleteBTN.setText("Delete");
+        deleteBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBTNActionPerformed(evt);
+            }
+        });
         jPanel1.add(deleteBTN);
         deleteBTN.setBounds(910, 660, 100, 50);
 
@@ -143,24 +169,81 @@ public class MusicLibraryGUI extends javax.swing.JFrame {
         moveBTN.setForeground(new java.awt.Color(51, 51, 51));
         moveBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/attach.png"))); // NOI18N
         moveBTN.setText("Move");
+        moveBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                moveBTNActionPerformed(evt);
+            }
+        });
         jPanel1.add(moveBTN);
         moveBTN.setBounds(1050, 10, 100, 50);
+        jPanel1.add(titleTF);
+        titleTF.setBounds(900, 480, 250, 40);
 
-        repeatTOGGLE.setBackground(new java.awt.Color(204, 204, 204));
-        repeatTOGGLE.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        repeatTOGGLE.setForeground(new java.awt.Color(51, 51, 51));
-        repeatTOGGLE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/update icon.png"))); // NOI18N
-        repeatTOGGLE.setText("Repeat");
-        jPanel1.add(repeatTOGGLE);
-        repeatTOGGLE.setBounds(300, 660, 120, 50);
+        searchBTN.setBackground(new java.awt.Color(204, 204, 204));
+        searchBTN.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        searchBTN.setForeground(new java.awt.Color(51, 51, 51));
+        searchBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Search.png"))); // NOI18N
+        searchBTN.setText("Search");
+        searchBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBTNActionPerformed(evt);
+            }
+        });
+        jPanel1.add(searchBTN);
+        searchBTN.setBounds(160, 660, 130, 50);
+
+        sizeBTN.setBackground(new java.awt.Color(204, 204, 204));
+        sizeBTN.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        sizeBTN.setForeground(new java.awt.Color(51, 51, 51));
+        sizeBTN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/attachment-512.png"))); // NOI18N
+        sizeBTN.setText("Size");
+        sizeBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sizeBTNActionPerformed(evt);
+            }
+        });
+        jPanel1.add(sizeBTN);
+        sizeBTN.setBounds(300, 660, 130, 50);
+
+        artistLBL.setBackground(new java.awt.Color(0, 0, 0));
+        artistLBL.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        artistLBL.setForeground(new java.awt.Color(153, 153, 153));
+        artistLBL.setText("Artist");
+        jPanel1.add(artistLBL);
+        artistLBL.setBounds(830, 550, 60, 40);
+
+        titleLBL.setBackground(new java.awt.Color(0, 0, 0));
+        titleLBL.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        titleLBL.setForeground(new java.awt.Color(153, 153, 153));
+        titleLBL.setText("Title");
+        jPanel1.add(titleLBL);
+        titleLBL.setBounds(830, 480, 60, 40);
+
+        repeatTOGGLE2.setBackground(new java.awt.Color(204, 204, 204));
+        repeatTOGGLE2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        repeatTOGGLE2.setForeground(new java.awt.Color(51, 51, 51));
+        repeatTOGGLE2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/update icon.png"))); // NOI18N
+        repeatTOGGLE2.setText("Repeat");
+        repeatTOGGLE2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                repeatTOGGLE2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(repeatTOGGLE2);
+        repeatTOGGLE2.setBounds(0, 500, 120, 50);
+        repeatTOGGLE2.setEnabled(false);
+        jPanel1.add(artistTF);
+        artistTF.setBounds(900, 550, 250, 40);
 
         backgroundLBL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/pngtree-note-music-logo-watercolor-background-picture-image_1589075.png"))); // NOI18N
         jPanel1.add(backgroundLBL);
-        backgroundLBL.setBounds(0, 0, 1520, 870);
+        backgroundLBL.setBounds(0, 0, 1200, 870);
 
         colorblindLBL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/pexels-daniel-reche-3721941.jpg"))); // NOI18N
         jPanel1.add(colorblindLBL);
-        colorblindLBL.setBounds(0, 10, 1270, 790);
+        colorblindLBL.setBounds(0, 10, 1200, 810);
+
+        jTabbedPane1.addTab("LIKED SONGS", jPanel1);
 
         jMenuBar1.setToolTipText("Menu to view data ");
 
@@ -185,13 +268,13 @@ public class MusicLibraryGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 723, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -215,6 +298,69 @@ public class MusicLibraryGUI extends javax.swing.JFrame {
         isLightMode = !isLightMode;
         
     }                                           
+
+    private void addBTNActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        
+        if (artistTF.getText().isEmpty() == true || titleTF.getText().isEmpty() == true) {
+            JOptionPane.showMessageDialog(null , "Please enter the title and the artist.");
+        } else {
+            likedSongs.addSong();
+        }
+
+    }                                      
+
+    private void deleteBTNActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        
+        if ( titleTF.getText().isEmpty() == true && artistTF.getText().isEmpty() == true ) {
+            
+            JOptionPane.showMessageDialog(null , "Please enter title or artist.");
+            
+        } else {
+            likedSongs.deleteSong();
+        }
+        
+    }                                         
+
+    private void print_likedBTNActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        
+        likedSongs.printPlaylist();
+        
+    }                                              
+
+    private void sizeBTNActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        
+        likedSongs.countSongs();
+        
+    }                                       
+
+    private void searchBTNActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        
+        String title = titleTF.getText();
+        String artist = artistTF.getText();
+        
+        likedSongs.searchSong(title, artist);
+                
+    }                                         
+
+    private void moveBTNActionPerformed(java.awt.event.ActionEvent evt) {                                        
+//        
+//        likedSongs
+//        genrePlaylist.addSong(Song song);
+//        
+    }                                       
+
+    private void repeatTOGGLE2ActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        
+        boolean repeat = false;
+        
+        if (MusicLibraryGUI.repeatTOGGLE2.isSelected() == true) {
+            repeat = true;
+            likedSongs.setRepeat();
+        } else if (MusicLibraryGUI.repeatTOGGLE2.isSelected() == false) {
+            repeat = false;
+            likedSongs.setNotRepeat();
+        }
+    }                                             
 
     /**
      * @param args the command line arguments
@@ -253,6 +399,8 @@ public class MusicLibraryGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton addBTN;
+    private javax.swing.JLabel artistLBL;
+    public static javax.swing.JTextField artistTF;
     private javax.swing.JLabel backgroundLBL;
     private javax.swing.JMenu colorBlindMode;
     private javax.swing.JLabel colorblindLBL;
@@ -261,11 +409,16 @@ public class MusicLibraryGUI extends javax.swing.JFrame {
     private javax.swing.JButton exitBTN;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton moveBTN;
     private javax.swing.JButton print_hiphopBTN;
     private javax.swing.JButton print_likedBTN;
     private javax.swing.JButton print_pianoBTN;
-    private javax.swing.JToggleButton repeatTOGGLE;
+    public static javax.swing.JToggleButton repeatTOGGLE2;
+    private javax.swing.JButton searchBTN;
+    private javax.swing.JButton sizeBTN;
     private javax.swing.JMenu time;
+    private javax.swing.JLabel titleLBL;
+    public static javax.swing.JTextField titleTF;
     // End of variables declaration                   
 }

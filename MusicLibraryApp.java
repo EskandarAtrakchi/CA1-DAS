@@ -12,5 +12,4 @@ public class MusicLibraryApp {
         mgui.setVisible(true);
         
     }
-    
 }

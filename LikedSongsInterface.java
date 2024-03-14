@@ -6,4 +6,12 @@ package musiclibrary;
  */
 public interface LikedSongsInterface {
     
+    void addSong();
+    void deleteSong();
+    void printPlaylist();
+    int countSongs();
+//    void setRepeat(boolean repeat);
+    void searchSong(String title, String artist);
+    void setRepeat();
+    void setNotRepeat();
 }
