@@ -2,7 +2,7 @@
 
 This class implements the LikedSongsInterface and manages a playlist of liked songs.
 
-### addSong()
+### `addSong()`
 Adds a new song to the liked songs playlist. It prompts the user to input the title and artist of the song and handles cases where the input is empty or repeat mode is activated.
 
 ### `printPlaylist()`
