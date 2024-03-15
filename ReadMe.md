@@ -5,6 +5,55 @@ This class implements the LikedSongsInterface and manages a playlist of liked so
 ### addSong()
 Adds a new song to the liked songs playlist. It prompts the user to input the title and artist of the song and handles cases where the input is empty or repeat mode is activated.
 
+```java
+
+@Override
+    public void addSong() {
+        
+        if (repeat) {
+            JOptionPane.showMessageDialog(null, "repeat is activated, deactivate the repeat first.");
+            System.out.println("repeat is activated");
+            return;
+        } else {
+            String title = titleTF.getText();
+            String artist = artistTF.getText();
+
+            // Check if title or artist is empty
+            if (title.isEmpty() || artist.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter both title and artist.");
+                return;
+            }
+
+            Song newSong = new Song(title, artist);
+            Node newNode = new Node(newSong);
+
+            if (head == null) {
+                head = newNode;
+                JOptionPane.showMessageDialog(null, "First Song added successfully!");
+                MusicLibraryGUI.repeatTOGGLE2.setEnabled(true);
+                if (repeat) {
+                    head.setNext(head); // Pointing to itself to indicate a circular list
+                }
+            } else {
+                Node last = getLastNode();
+                if (last != null) {
+                    last.setNext(newNode);
+                    JOptionPane.showMessageDialog(null, "Added to the list of liked songs.");
+                    MusicLibraryGUI.repeatTOGGLE2.setEnabled(true);
+                    if (repeat) {
+                        newNode.setNext(head); // Pointing the last node to the head to create a circular list
+                        head = newNode; // Update the head to the newly added node to maintain circularity
+                    }
+                } else {
+                    // Handle the case where last node is null
+                    JOptionPane.showMessageDialog(null, "Error: Last node is null.");
+                }
+            }
+        }
+    }
+
+```
+
 ### printPlaylist()
 Prints the liked songs playlist. It iterates over the playlist and displays the title and artist of each song.
 
