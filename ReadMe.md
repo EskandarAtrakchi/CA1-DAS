@@ -1,3 +1,41 @@
+# Song.java
+
+This class represents a song in the music library.
+
+### `Song(String title, String artist)`
+Constructor method to initialize a new Song object with the given title and artist.
+
+### `getTitle()`
+Getter method to retrieve the title of the song.
+
+### `getArtist()`
+Getter method to retrieve the artist of the song.
+
+### `equals(Object obj)`
+Overrides the equals method to compare the title and artist attributes for equality using Objects.equals().
+
+### `hashCode()`
+Overrides the hashCode method to improve performance (Big O notation) when storing Song objects in collections.
+
+### `toString()`
+Overrides the toString method to return a string representation of the Song object.
+
+# Node.java
+
+This class represents a node in a linked list used to store songs.
+
+### `Node(Song song)`
+Constructor method to initialize a new Node object with the given song.
+
+### `getSong()`
+Getter method to retrieve the song stored in the node.
+
+### `getNext()`
+Getter method to retrieve the next node in the linked list.
+
+### `setNext(Node next)`
+Setter method to set the next node in the linked list.
+
 # LikedSongsImpl.java
 
 This class implements the LikedSongsInterface and manages a playlist of liked songs.
