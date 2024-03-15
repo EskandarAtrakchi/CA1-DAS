@@ -3,7 +3,7 @@
 
 # Song.java
 
-This class represents a song in the music library.
+This class represents a song in the music library with title and artist attributes.
 
 ### `Song(String title, String artist)`
 Constructor method to initialize a new Song object with the given title and artist.
@@ -44,7 +44,7 @@ Setter method to set the next node in the linked list.
 This class implements the LikedSongsInterface and manages a playlist of liked songs.
 
 ### `addSong()`
-Adds a new song to the liked songs playlist. It prompts the user to input the title and artist of the song and handles cases where the input is empty or repeat mode is activated.
+Adds a new song to the liked songs playlist. The user to input the title and artist of the song and handles cases where the input is empty or repeat mode is activated.
 
 ### `printPlaylist()`
 Prints the liked songs playlist. It iterates over the playlist and displays the title and artist of each song.
