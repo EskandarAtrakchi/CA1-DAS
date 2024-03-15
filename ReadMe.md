@@ -1,3 +1,6 @@
+# This read me is created to give a definition for each of the methods in this application 
+
+
 # Song.java
 
 This class represents a song in the music library.
