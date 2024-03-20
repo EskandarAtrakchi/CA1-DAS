@@ -62,7 +62,7 @@ Activates the repeat mode, making the liked songs playlist circular. It updates 
 Deactivates the repeat mode, making the liked songs playlist linear. It updates the next reference of the last node to null.
 
 ### `searchSong(String title, String artist)`
-Searches for a song in the liked songs playlist by title or artist. It prompts the user to input the title and artist of the song to search for and displays the search results.
+Searches for a song in the liked songs playlist by title or artist. It takes the user's input the title and artist of the song to search for and displays the search results.
 
 # GenrePlaylistImpl.java
 
@@ -96,7 +96,7 @@ Counts the number of songs in the Piano playlist and displays the count to the u
 Sets the repeat mode for both playlists. It updates the next reference of the last node to point back to the head node if repeat mode is activated.
 
 ### `searchHipHopSong(String title, String artist)`
-Searches for a Hip-Hop song in the playlist by title or artist. It prompts the user to input the title and artist of the song to search for and displays the search results.
+Searches for a Hip-Hop song in the playlist by title or artist. It takes the user's input the title and artist of the song to search for and displays the search results.
 
 ### `searchPianoSong(String title, String artist)`
-Searches for a Piano song in the playlist by title or artist. It prompts the user to input the title and artist of the song to search for and displays the search results.
+Searches for a Piano song in the playlist by title or artist. It takes the user's input the title and artist of the song to search for and displays the search results.
